@@ -56,3 +56,11 @@ class Snake:
             new_y = self.snake_segments[seg_number - 1].ycor()
             self.snake_segments[seg_number].goto(new_x, new_y)
         self.head.forward(MOVE_DISTANCE)
+
+
+    def reset(self):
+        for seg in self.snake_segments:
+            seg.goto(1000, 1000)
+        self.snake_segments.clear()
+        self.create_snake()
+        self.head = self.snake_segments[0]
